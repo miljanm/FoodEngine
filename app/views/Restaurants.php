@@ -1,4 +1,3 @@
-
 <?
 if(empty($restaurants))
 	echo "<div class='alert alert-error'>No restaurants found by your keyword, sorry, try again.</div>";
@@ -8,8 +7,8 @@ if(empty($restaurants))
 
 <div class="youEat">
 	You can eat <b class="foodName"><?=$restaurant['foodName'];?></b> 
-    for <i><?=$restaurant['Price'];?>£</i>
-	at restaurant 
+    for <i>£<?=$restaurant['Price'];?></i>
+	at 
 	<b><?=$restaurant['restaurantName'];?></b>
 </div>
 
