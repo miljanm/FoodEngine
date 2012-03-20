@@ -5,7 +5,7 @@
 	<input type="text" name="searchString" class="mainInput" 
 	placeholder="Enter the name of food you want to eat or restaurant name">
 	
-	<input type="submit" value="Search" class="btn btn-inverse mainButton">
+	<input type="submit" value="Search" class="btn submitSearch btn-inverse mainButton">
 	
 </form>
 
@@ -15,10 +15,20 @@
 <script>
 $(function() {
 	$("#searchForm").submit(function() {
-		$.post("<?=URL;?>MainPage/Index/startSearching", $(this).serialize(), function(data)
-		{
-			$('.answers').hide().html(data).fadeIn(400);
-		})
+    post();
 	})
+	
+	$('.mainInput').keyup(function() {
+	  post();
+	})
+	
+	function post()
+	{
+	  $('.answers').hide().html("Loading...").fadeIn(0);
+	  $.post("<?=URL;?>MainPage/Index/startSearching", {searchString : $('.mainInput').val()}, function(data)
+	  {
+		  $('.answers').hide().html(data).fadeIn(0);
+	  })
+  }
 })	
 </script>

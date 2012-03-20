@@ -2,7 +2,7 @@
 
 class Index extends Controller
 {
-	private $foodNoPerPage = 1;
+	private $foodNoPerPage = 3;
 	
 	function __construct()
 	{
